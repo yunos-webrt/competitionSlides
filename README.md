@@ -13,7 +13,7 @@ competitionSlides
 
 4. 用Chrome浏览器（必须）打开http://localhost:8080，应该可以看到ppt
 
-5. 下面安装remote，访问http://developer.yunos.com，确保云OS手机可以成功连接，并已经打开了手机上“设置”->“启动开发者模式”。
+5. 下面安装remote，访问[http://developer.yunos.com](http://developer.yunos.com),确保云OS手机可以成功连接，并已经打开了手机上“设置”->“启动开发者模式”。
 
 6. 打开“工具”->“一键安装”，选择[pptfolder]\webroot\remote目录。点击“一键安装”
 
