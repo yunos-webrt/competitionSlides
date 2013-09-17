@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>WebApp开发实践</title>
+
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h2>WebApp开发实践</h2>
+          <h4>基于云OS开发WebApp更畅快</h4>
+          <p>
+            <small>Created by <a href="http://developer.yunos.com" target="_blank">云OS开发者平台</a></small>
+          </p>
+          <img src="img/qrcode.png" />
+        </section>
+
+        <section>
+          <h2>Agenda</h2>
+          <img src="img/overview.png" />
+        </section>
+
+        <section>
+          <h2>开发</h2>
+          <img src="img/dev.png" />
+        </section>
+        <section>
+          <section>
+            <h2>开发 · Helloworld</h2>
+          </section>
+          <section>
+            <h2>一个简单WebApp的代码结构</h2>
+            <img src="img/packaged.png">
+            <p><a href="http://developer.yunos.com/apidoc/out/index.html#!/guide/webrt_sample" target="_blank">更多Samples code</a></p>
+          </section>
+          <section>
+            <h2>WebApp的定义者：manifest.json</h2>
+            <pre><code>
+{
+    "name": "Helloworld",
+    "version": "1.0.0",
+    "type": "web",
+    "package": "com.yunos.samples.helloworld",
+    "version_code": 1,
+    "minimum_runtime_version": "0.0.1",
+    "description": "a simple WebApp sample code",
+    "icons": {
+      "36": "/style/icons/36/icon-36.png",
+      "48": "/style/icons/48/icon-48.png",
+      "72": "/style/icons/72/icon-72.png",
+      "96": "/style/icons/96/icon-96.png"
+    },
+    "developer": {
+        "name": "yunos",
+        "url": "http://www.yunos.com"
+    },
+    "appcache": "helloworld.appcache",
+   "launch_url": "http://webrt-helloworld.aliapp.com/index.html",
+    "locales": {
+       "en": {
+           "name": "Helloworld",
+           "description": "a simple WebApp sample code",
+           "developer": {
+                "name": "NG-WebOS",
+                "url": "http://www.yunos.com/"
+           }
+       },
+       "zh-rCN": {
+           "name": "Helloworld",
+           "description": "一个简单的WebApp代码实例",
+           "developer": {
+                "name": "NG-WebOS",
+                "url": "http://www.yunos.com/"
+           }
+       }
+    },
+    "fullscreen": "true",
+    "platform": "phone",
+    "permissions": {
+            "geolocation": {}
+    }
+}
+            </code></pre>
+            <a href="http://developer.yunos.com/apidoc/out/index.html#!/guide/manifest_specification" target="_blank">完整参考</a>
+          </section>
+          <section>
+            <h1>Packaged <span style="font-size: 80px; vertical-align: middle;">VS</span> Hosted</h1>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>开发 · 功能</h2>
+          </section>
+          <section>
+            <h3>支持H5的云OS能为开发者带来什么？</h3>
+            <img style="border: none; background: none; box-shadow: none;" src="img/HTML5_Logo_512.png">
+            <!-- <div> -->
+              <!-- <img style="width: 100px; height: 75px;" src="img/class-header-semantics.jpg" /> -->
+              <!-- <img style="width: 100px; height: 75px;" src="img/class-header-offline.jpg" /> -->
+              <!-- <img style="width: 100px; height: 75px;" src="img/class-header-multimedia.jpg" /> -->
+              <!-- <img style="width: 100px; height: 75px;" src="img/class-header-performance.jpg" /> -->
+              <!-- <img style="width: 100px; height: 75px;" src="img/class-header-connectivity.jpg" /> -->
+              <!-- <img style="width: 100px; height: 75px;" src="img/class-header-device.jpg" /> -->
+              <!-- <img style="width: 100px; height: 75px;" src="img/class-header-3d.jpg" /> -->
+              <!-- <img style="width: 100px; height: 75px;" src="img/class-header-css3.jpg" /> -->
+            <!-- </div> -->
+          </section>
+          <section>
+            <h2>云OS特有API</h2>
+            <ol>
+              <li >发送Intent或广播调用其他App，比如启动或关闭应用</li>
+              <li >应用安装、卸载、载入列表等管理功能</li>
+              <li >通知中心</li>
+              <li >通用的数据提供和访问服务</li>
+              <li >实时数据push服务</li>
+              <li >集成支付、广告等云服务</li>
+              <li >......</li>
+            </ol>
+            <p><a class="fragment" href="http://developer.yunos.com/apidoc/out/#!/guide/account" target="_blank">完整参考</a></p>
+          </section>
+          <section>
+            <h2>
+            <img src="img/nodejs.png"></h2>
+            <ol>
+              <li >与Web Runtime融为一体</li>
+              <li >启动HTTP、WebSocket等网络服务</li>
+              <li >访问文件系统</li>
+              <li >第三方module</li>
+              <li >......</li>
+            </ol>
+            <p><a class="fragment" href="http://developer.yunos.com/apidoc/out/#!/guide/Nodejs_Reference" target="_blank">完整参考</a></p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>开发 · 框架</h2>
+          </section>
+          <section>
+            <h2>最丰富的框架和库</h2>
+            <ul>
+              <li>Boilerplate: html5Boilerplate / mobileBoilerplate</li>
+              <li>基础类库: zepto / jQuery / Underscore</li>
+              <li>功能类库: Hammer.js / swipe.js / fastclick.js</li>
+              <li>模块化: requireJs / seaJs(支付宝)</li>
+              <li>MVC框架: Backbone.js / Spine.js / Angular.js / Ember.js</li>
+              <li>UI框架: sencha Touch / jQuery mobile / jQ Touch</li>
+            </ul>
+          </section>
+          <!-- <section> -->
+            <!-- <p><b>MVC</b>:Backbone.js/Spine.js/Angular.js/Ember.js</p> -->
+            <!-- <p class="fragment fade-in"><img src="img/todo.png" alt="" width="600px"/></p> -->
+          <!-- </section> -->
+          <!-- <section> -->
+            <!-- <p >ui框架:sencha Touch/jQuery mobile/jQ Touch</p> -->
+            <!-- <div class="column aligncenter " style="position: relative;margin-top:0px;"> -->
+              <!-- <div id="touchPhone"><iframe id="touchPhoneIframe" class="touchPhoneScreenshot" src="http://dev.sencha.com/deploy/touch/examples/production/kitchensink/index.html?deviceType=Phone"></iframe> -->
+                <!-- <div id="touchPhoneScreenshot" class="touchPhoneScreenshot" style="visibility: hidden;"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </section> -->
+        </section>
+
+        <section>
+          <section>
+            <h2>开发 · 工具</h2>
+          </section>
+          <section>
+            <h2>云OS开发者平台架构</h2>
+            <img src="img/arch.png">
+            <p>一站式的WebApp开发体验</p>
+          </section>
+          <section>
+            <h2>一键安装工具</h2>
+            <img src="img/install_arch.png">
+          </section>
+          <section>
+            <h2>调试工具</h2>
+            <img src="img/debug_arch.png">
+          </section>
+          <section>
+            <h2>连接工具</h2>
+            <h4>时刻保证手机连接</h4>
+            <a href="https://chrome.google.com/webstore/detail/yunos-webrt-developer/efdlgchfdoelefkphkcjaklmmkcaoljc" target="_blank"><img src="img/chromeplugin.png"></a>
+          </section>
+        </section>
+
+        <!-- <section> -->
+          <!-- <h2>优化</h2> -->
+          <!-- <img src="img/tuning.png" /> -->
+        <!-- </section> -->
+        <section>
+          <section>
+            <h2>性能</h2>
+            <p>Mark Zuckerberg: Our Biggest Mistake Was Betting Too Much On HTML5</p>
+            <img src="img/facebook.png" alt="" width="600px" height="480px"/>
+          </section>
+          <section>
+            <h2>性能</h2>
+            <h3>fastbook!</h3>
+            <video src="fastbook.m4v" height="270" width="480" preload="auto" controls></video>
+          </section>
+        </section>
+
+        <!-- <section> -->
+          <!-- <section> -->
+            <!-- <h2>性能优化 · 网络</h2> -->
+          <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>毫秒必争</h2> -->
+          <!-- <p>1000 ms delay == 7% loss in conversions</p> -->
+          <!-- <img src="img/chart.png" alt="" /> -->
+        <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>网络优化</h2> -->
+          <!-- <ul> -->
+            <!-- <li>避免不必要的重定向</li> -->
+            <!-- <li>优化服务器的响应</li> -->
+            <!-- <li>减少造成block的资源</li> -->
+            <!-- <li>最大限度降低有效负荷：压缩图片，css，js</li> -->
+          <!-- </ul> -->
+        <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>体验优化:比如,一个有趣的进度条</h2> -->
+          <!-- <div class="progress-circle-container"> -->
+            <!-- <div class="progress-circle-outer animate"> -->
+            <!-- </div> -->
+            <!-- <div class="progress-circle-inner animate"> -->
+              <!-- <span class="number">100</span> -->
+              <!-- <span class="unit">%</span> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>更重要的</h2> -->
+          <!-- <h3>非离线应用，也要为离线做设计</h3> -->
+          <!-- <img class="fragment fade" src="img/applicationcache.jpg" alt="" /> -->
+          <!-- <img class="fragment fade" src="img/package.png" alt="" width="300px" height="190px"/> -->
+        <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>优化工具</h2> -->
+          <!-- <ul> -->
+            <!-- <li>PageSpeed Insight</li> -->
+            <!-- <li>YSlow</li> -->
+          <!-- </ul> -->
+          <!-- <img src="img/pagespeed.png" alt="" /> -->
+        <!-- </section> -->
+        <!-- </section> -->
+
+        <!-- <section> -->
+          <!-- <section> -->
+            <!-- <h2>性能优化 · 计算</h2> -->
+          <!-- </section> -->
+        <!-- <section id="thirteen"> -->
+          <!-- <h2 class="bigfont">计算性能</h2> -->
+          <!-- <ul> -->
+            <!-- <h3 class="left">关键点</h3> -->
+            <!-- <li>内存控制</li> -->
+            <!-- <li>高效的js代码</li> -->
+            <!-- <li>算法复杂度</li> -->
+          <!-- </ul> -->
+        <!-- </section> -->
+        <!-- <section id="fourteen"> -->
+            <!-- <h2>js内存控制</h2> -->
+            <!-- <ul style="top:-150px; position:relative;"> -->
+              <!-- <li>避免闭包导致的循环引用</li> -->
+              <!-- <li>控制Dom遍历范围和次数</li> -->
+              <!-- <li>使用事件代理</li> -->
+              <!-- <li>使用高效的Dom选择器</li> -->
+              <!-- <li>使用内存池来减少内存跳变</li> -->
+              <!-- <li>……</li> -->
+            <!-- </ul> -->
+            <!-- <img  class="img-shadow" src="img/performance.png" alt="" width="320px" height="480px"/> -->
+        <!-- </section> -->
+        <!-- <section id="fifteen"> -->
+          <!-- <h2>高效的js</h2> -->
+          <!-- <ul style="top:-150px; position:relative;"> -->
+            <!-- <li>使用Array来拼接字符串</li> -->
+            <!-- <li>将循环控制量保存到局部变量</li> -->
+            <!-- <li>顺序无关的遍历时，用while</li> -->
+            <!-- <li>避免使用with</li> -->
+            <!-- <li>避免使用eval</li> -->
+            <!-- <li>……</li> -->
+          <!-- </ul> -->
+          <!-- <img  class="img-shadow" src="img/performance.png" alt="" width="320px" height="480px"/> -->
+        <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>优化工具</h2> -->
+          <!-- <h3>YUNOS DEV TOOLS:Timeline-memory</h3> -->
+          <!-- <img src="img/memory.png" alt="" /> -->
+        <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>优化工具</h2> -->
+          <!-- <h3>Benchmark:benchmark.js</h3> -->
+          <!-- <img src="img/benchmark.png" alt="" width="800px" height="500px"/> -->
+        <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>优化工具</h2> -->
+          <!-- <h3>yunos dev tools:profile</h3> -->
+          <!-- <img src="img/profile.png" alt="" /> -->
+        <!-- </section> -->
+        <!-- <section> -->
+          <!-- <h2>优化工具</h2> -->
+          <!-- <h3>yunos dev tools:tracing</h3> -->
+          <!-- <img src="img/trace.png" alt="" /> -->
+        <!-- </section> -->
+        <!-- </section> -->
+
+        <section>
+          <section>
+            <h2>性能优化</h2>
+          </section>
+          <!-- <section> -->
+            <!-- <h2>三个维度</h2> -->
+            <!-- <ul> -->
+              <!-- <li class="bigfont">网络</li> -->
+              <!-- <li class="bigfont">计算</li> -->
+              <!-- <li class="bigfont">渲染</li> -->
+            <!-- </ul> -->
+          <!-- </section> -->
+          <!-- <section> -->
+          <!-- <h2>yunos webRuntime渲染过程</h2> -->
+          <!-- <img src="img/browser1.png" alt="" width="720px" height="350px"/> -->
+          <!-- <img src="img/browser2.png" alt="" width="720px" height="140px"/> -->
+          <!-- </section> -->
+          <!-- <section> -->
+            <!-- <h2>关键点</h2> -->
+            <!-- <ul> -->
+              <!-- <li class="bigfont">减少重绘和重排</li> -->
+              <!-- <li class="bigfont">处理好绘制</li> -->
+            <!-- </ul> -->
+          <!-- </section> -->
+          <!-- <section> -->
+            <!-- <h2>引起重绘和重排的操作</h2> -->
+            <!-- <ul> -->
+              <!-- <p>重排</p> -->
+              <!-- <ul> -->
+                <!-- <li>Dom元素的几何属性发生变</li> -->
+                <!-- <li>Dom树的结构发生了变化</li> -->
+                <!-- <li>获取某些属性：比如offsetTop,scrollTop,clientTop</li> -->
+              <!-- </ul> -->
+              <!-- <p>重绘</p> -->
+              <!-- <ul> -->
+                <!-- <li>visibility</li> -->
+                <!-- <li>background color</li> -->
+              <!-- </ul> -->
+            <!-- </ul> -->
+          <!-- </section> -->
+          <!-- <section> -->
+            <!-- <h2>Dom 操作</h2> -->
+            <!-- <ul> -->
+              <!-- <li> -->
+                <!-- <p>避免直接操作Dom</p> -->
+                <!-- <ul> -->
+                  <!-- <li>使用DocumentFragment</li> -->
+                  <!-- <li>节点克隆</li> -->
+                <!-- </ul> -->
+              <!-- </li> -->
+              <!-- <li><p>减少Dom数量和深度</p> -->
+                <!-- <ul> -->
+                  <!-- <li>Dom越多速度越慢</li> -->
+                  <!-- <li>父节点重排，子节点全部重排</li> -->
+                <!-- </ul> -->
+              <!-- </li> -->
+              <!-- <li> -->
+                <!-- <p>消除Dom之间的依赖</p> -->
+                <!-- <ul> -->
+                  <!-- <li>position:absolute</li> -->
+                <!-- </ul> -->
+              <!-- </li> -->
+            <!-- </ul> -->
+          <!-- </section> -->
+          <!-- <section> -->
+            <!-- <h2>一次性修改样式</h2> -->
+            <!-- <p>糟糕的写法</p> -->
+            <!-- <pre><code> -->
+            <!-- var changeDiv = document.getElementById(‘changeDiv’); -->
+                <!-- changeDiv.style.color = ‘#093′; -->
+                <!-- changeDiv.style.background = ‘#eee’; -->
+                <!-- changeDiv.style.height = ’200px’; -->
+            <!-- </code></pre> -->
+            <!-- <p>好的写法</p> -->
+            <!-- <pre><code> -->
+           <!-- .changeDiv { -->
+              <!-- background: #eee; -->
+              <!-- color: #093; -->
+              <!-- height: 200px; -->
+            <!-- } -->
+            <!-- document.getElementById(‘changeDiv’).classList.add(‘changeDiv’); -->
+            <!-- </code></pre> -->
+          <!-- </section> -->
+          <section>
+            <h2>绘制原则</h2>
+            <ol>
+              <li>快速绘制</li>
+              <li>避免意外绘制</li>
+              <li>完全不绘制</li>
+            </ol>
+          </section>
+          <section>
+            <h2>快速绘制</h2>
+            <h3>
+              css3 expensive styles
+            </h3>
+            <ul>
+              <li>box shadow</li>
+              <li>gradient</li>
+              <li>background size</li>
+              <li>……</li>
+            </ul>
+            <div id= "paint-demo" class="fragment fade">
+              <div id="controls">
+                <input id="heavy-paint" type="checkbox" checked="true"><label for="heavy-paint">expensive styles</label>
+              </div>
+              <img  class="heavy-painting demo-logo" id="yunos-logo" src="img/cjk.png" alt="" />
+              <img  class="heavy-painting demo-logo" id="yunos-logo2" src="img/cjk.png" alt="" />
+            </div>
+            <h3 class="fragment fade" style="margin-top:30px">YUNOS DEV TOOLS:continues page repaint</h3>
+          </section>
+        <section>
+          <h2>CSS3 please!</h2>
+          <h3>使用css 3 animation && transition 来做动画</h3>
+          <h3 class="fragment fade">开启硬件加速:</h3>
+          <p class="fragment fade">transform: translateZ(0); 或 transform: translate3d(0, 0, 0);</p>
+          <button onclick="toggleShape()" style="
+            position: absolute;
+            top: 650px;
+            left: 419px;
+            z-index: 20;
+            ">Toggle Shape</button>
+          <div id="container">
+            <div id="stage">
+              <div id="shape" class="cube backfaces">
+                <div class="plane one">A</div>
+                <div class="plane two">L</div>
+                <div class="plane three">I</div>
+                <div class="plane four">B</div>
+                <div class="plane five">A</div>
+                <div class="plane six">B</div>
+                <div class="plane seven">A</div>
+                <div class="plane eight">Y</div>
+                <div class="plane nine">U</div>
+                <div class="plane ten">N</div>
+                <div class="plane eleven">O</div>
+                <div class="plane twelve">S</div>
+              </div>
+            </div>
+          </div>
+          <!-- <ul> -->
+            <!-- <li>transition</li> -->
+            <!-- <li>animation</li> -->
+          <!-- </ul> -->
+          <!-- <h3>开启硬件加速</h3> -->
+            <!-- <ul> -->
+              <!-- <li>translateZ</li> -->
+              <!-- <li>translate3d</li> -->
+            <!-- </ul> -->
+          </section>
+          <section>
+            <h2>避免意外绘制</h2>
+            <div class="toggle-test">
+              <svg height="86" width="221" class="redraw-test">
+                <style>.redraw-test 
+                  text { font-size:40px; font-family: sans-serif; }
+                </style><text y="30.391" x="0">
+                <tspan class="toggler">Hello</tspan>
+                <tspan class="toggler">World</tspan>
+              </text><text y="85.391" x="0" class="toggler on">Hello</text>
+              <text y="85.391" x="103" class="toggler">World</text></svg>
+            <p style="font-size:40px;margin:0;color:#000;line-height:1.5"><span class="toggler">Hello</span> <span class="toggler">World</span></p>
+          </div>
+          <p class="fragment fade">YUNOS DEV TOOLS:Show paint rectangles</p>
+        </section>
+        <section>
+          <h2>完全不绘制</h2>
+          <h2>layer model</h2>
+          <h3 class="fragment fade" style="margin-top:30px;">任何移动都不会引起重绘</h3>
+          <h3 class="fragment fade" style="margin-top:30px;">适合要做变换的静态内容</h3>
+        </section>
+          <!-- <section> -->
+            <!-- <h2>layer model</h2> -->
+            <!-- <ol> -->
+              <!-- <li>Dom转换为layer</li> -->
+              <!-- <li>绘制每个layer,转换为bitmap</li> -->
+              <!-- <li>以纹理的形式上传到GPU</li> -->
+              <!-- <li>将所有的layer组合成最终显示图像</li> -->
+            <!-- </ol> -->
+            <!-- <h3 style="margin-top:30px;" class="fragment fade">任何移动都不会引起重绘</h3> -->
+            <!-- <h3 style="margin-top:30px;" class="fragment fade">适合要做变换的静态内容</h3> -->
+          <!-- </section> -->
+          <section>
+            <h2>动画和layer</h2>
+            <button id="layer-control" style="float:right" >加宽</button>
+            <div id="layer">layer</div>
+            <p>YUNOS DEV TOOLS:Show composited layer borders</p>
+          </section>
+          <section>
+            <div style="top: -200.5px;position: relative;">
+                      <h2>滚动和layer</h2>
+                      <p style="margin-bottom: 55px;">
+                      </p>
+                      <button style="float:right" onclick="document.getElementById('rotationContainer').classList.toggle('rotated');">滚动</button>
+                      <div id="perspectiveContainer">
+                        <div id="rotationContainer">
+                          <div id="viewport">
+                            <div class="blueborder"></div>
+                          </div>
+                          <img id="gmailtop" src="img/topbar.png">
+                          <img id="gmailside" src="img/menu.png">
+                          <img id="gmailmessages" style="" src="img/messagelist.png">
+                        </div>
+                      </div>
+            </div>
+          </section>
+          <!-- <section> -->
+            <!-- <h2>滚动性能</h2> -->
+            <!-- <ul> -->
+              <!-- <li>使用原生滚动条</li> -->
+              <!-- <li>position:fixed</li> -->
+              <!-- <li>hover 效果</li> -->
+              <!-- <li>touch listener</li> -->
+              <!-- <li>过多无用的layer</li> -->
+            <!-- </ul> -->
+          <!-- </section> -->
+          <section>
+          <h2>layer的生成</h2>
+          <ul>
+            <li>3d transform</li>
+            <li>video标签</li>
+            <li>canvas标签</li>
+            <li>……</li>
+          </ul>
+          </section>
+         <section>
+            <h2>last but not least</h2>
+            <h2>关注电量</h2>
+            <div id="batteries">
+              <div id='battery'></div>
+            </div>
+            <h3 style="
+              position: absolute;
+              top: 409px;
+              left: 188px;
+              ">性能越差，耗电量越大</h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>部署</h2>
+          </section>
+          <section>
+            <h2>互联网应用开发的痛</h2>
+            <img src="img/ace1.jpg" />
+          </section>
+          <section>
+            <h2>ACE是什么</h2>
+            <ul >
+              <h3>
+                ACE（Alibaba Cloud Engine，云引擎）
+              </h3>
+              <li>是一个托管环境</li>
+              <li>是一个网络应用托管环境</li>
+              <li>是一个可弹性扩展的网络应用托管环境</li>
+            </ul>
+          </section>
+          <section>
+            <img src="img/acebig.png" alt="" />
+          </section>
+          <section>
+            <h2>ACE初窥</h2>
+            <img src="img/ace2.jpg" />
+          </section>
+          <section>
+            <img src="img/acebig2.png" alt="" />
+          </section>
+          <section>
+            <h2>有哪些特点</h2>
+            <ul>
+              <li>无一次性投入成本</li>
+              <li>无需搭建环境，无需运维</li>
+              <li>使用简单，技术门槛低</li>
+              <li>根据访问冷热弹性伸缩占用的资源</li>
+              <li>提供扩展服务（分布式Session、缓存服务、定时任务……）</li>
+            </ul>
+          </section>
+          <section>
+            <h2>适合什么开发者</h2>
+            <ul>
+              <li>个人及中小团队、创业团队、站长等互联网应用开发者</li>
+              <li>
+                <p>他们具有以下特点：</p>
+                <ul>
+                  <li>往往处于初创期或者成长期，资金有限，承受不起巨大的一次性投入。</li>
+                  <li>业务常具有增长性、爆发性和突发性等特点，需要高度可伸缩的框架。</li>
+                  <li>需要简洁的开发和部署流程，轻量的高度集成化的平台。</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>如何使用</h2>
+            <img src="img/ace3.jpg" />
+          </section>
+        </section>
+
+        <section>
+          <h2>运营</h2>
+          <img src="img/market.png" />
+        </section>
+
+        <section>
+          <h2>运营 · 应用中心</h2>
+          <a href="http://apps.yunos.com/" target="_blank"><img src="img/appstore.png"></a>
+        </section>
+
+        <section>
+          <h2>运营 · 社区</h2>
+          <a href="http://bbs.yunos.com/" target="_blank"><img src="img/community.png"></a>
+        </section>
+
+        <section>
+          <h1>谢谢大家</h1>
+          <h2>Q&A</h2>
+          <img src="img/qrcode.png" />
+          <p>可以访问http://developer.yunos.com</p>
+          <p> 获得更多本次大赛和开发技术的详细信息</p>
+        </section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/leap/leap.js', async: true }
+        // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+    });
+
+    </script>
+
+    <!-- controldeck.js -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/controldeck-slides.js"></script>
+
+  </body>
+</html>
+          

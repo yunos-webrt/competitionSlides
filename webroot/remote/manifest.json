@@ -1,0 +1,43 @@
+{
+    "name": "Remote Controller",
+    "version": "1.0.0",
+    "version_code": "1",
+    "type": "web",
+    "package": "com.yunos.apps.control",
+    "minimum_runtime_version": "0.0.1",
+    "description": "A remote controller WebApp which can control HTML5 slides written by reveal.js",
+    "developer": {
+        "name": "Yang Yang (YunOS NG Team)",
+        "url": "http://www.yunos.com"
+    },
+    "launch_url": "/index.html",
+    "appcache": "remote.appcache",
+    "locales": {
+       "en": {
+           "name": "Remote Controller",
+           "description": "A remote controller WebApp which can control HTML5 slides written by reveal.js",
+           "developer": {
+                "name": "Yang Yang (YunOS NG Team)",
+                "url": "http://www.yunos.com"
+           }
+       },
+       "zh-rCN": {
+           "name": "幻灯遥控器",
+           "description": "一个可以控制由reveal.js写成的HTML5幻灯片的WebApp遥控器",
+           "developer": {
+                "name": "杨扬 (云OS NG小组)",
+                "url": "http://www.yunos.com"
+           }
+       }
+    },
+    "fullscreen": "true",
+    "platform": "phone",
+    "permissions": {
+            "geolocation": {},
+            "contacts": {},
+            "vibrate":{},
+            "power":{},
+            "telephony":{},
+            "packages":{}
+    }
+}

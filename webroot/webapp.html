@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>WebApp开发之旅</h2>
+					<h4>基于云OS开发WebApp更畅快</h4>
+					<p>
+						<small>Created by <a href="http://developer.yunos.com" target="_blank">云OS开发者平台</a></small>
+					</p>
+					<img src="img/qrcode.png" />
+				</section>
+
+				<section data-background="img/problem.jpg">
+					<section>
+						<h2 class="absolute-element" style="position: absolute; z-index: 4; left: -100px; top: 0px;">障碍</h2>
+						<a href="#" class="image navigate-down" style="position: absolute; z-index: 4; left: -60px; top: 100px;">
+						<img width="72" height="72" src="img/down.png" />
+						</a>
+					</section>
+					<section>
+						<h2 class="absolute-element" style="position: absolute; z-index: 4; left: -100px; top: 0px;">障碍一</h2>
+						<h3 class="absolute-element" style="position: absolute; z-index: 4; left: 800px; top: 0px;width: 400px">性能</h3>
+					</section>
+					<section>
+						<h2 class="absolute-element" style="position: absolute; z-index: 4; left: -100px; top: 0px;">障碍二</h2>
+						<h3 class="absolute-element" style="position: absolute; z-index: 4; left: 800px; top: 0px;width: 400px">App生态体系</h3>
+					</section>
+					<section>
+						<h2 class="absolute-element" style="position: absolute; z-index: 4; left: -100px; top: 0px;">障碍三</h2>
+						<h3 class="absolute-element" style="position: absolute; z-index: 4; left: 800px; top: 0px;width: 400px">Native能力</h3>
+					</section>
+					<section>
+						<h2 class="absolute-element" style="position: absolute; z-index: 4; left: -100px; top: 0px;">障碍四</h2>
+						<h3 class="absolute-element" style="position: absolute; z-index: 4; left: 800px; top: 0px;width: 400px">开发调试支持</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>云OS帮你帮你扫清障碍</h2>
+						<ol>
+							<li class="fragment">WebRuntime内核</li>
+							<li class="fragment">云OS生态体系</li>
+							<li class="fragment">Web API</li>
+							<li class="fragment">开发者平台</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>玩转云OS WebRuntime</h2>
+						<h4>Step By Step</h4>
+						<a href="#" class="image navigate-down">
+						<img width="72" height="72" src="img/down.png" />
+						</a>
+					</section>
+					<section>
+						<h2>两种部署模式</h2>
+						<h4>Packaged VS Hosted</h4>
+					</section>
+					<section>
+						<h2>代码结构</h2>
+						<img src="img/packaged.png">
+					</section>
+					<section>
+						<h2>manifest.json</h2>
+						<pre><code>
+{
+    "name": "Helloworld",
+    "version": "1.0.0",
+    "type": "certified",
+    "package": "com.yunos.samples.helloworld",
+    "minimum_runtime_version": "0.0.1",
+    "description": "a simple WebApp sample code",
+    "icons": {
+        "36": "/style/icons/36/icon-36.png",
+        "48": "/style/icons/48/icon-48.png",
+        "72": "/style/icons/72/icon-72.png",
+        "96": "/style/icons/96/icon-96.png"
+    },
+    "developer": {
+        "name": "yunos",
+        "url": "http://www.yunos.com"
+    },
+    "appcache": "settings-host.appcache",
+    "launch_url": "http://webrt-helloworld.aliapp.com/index.html",
+    "locales": {
+       "zh-rCN": {
+           "name": "Helloworld",
+           "description": "一个简单的WebApp代码实例",
+           "developer": {
+                "name": "NG-WebOS",
+                "url": "http://www.yunos.com/"
+           }
+       }
+    },
+    "fullscreen": "true",
+    "platform": "phone",
+    "permissions": {
+            "geolocation": {}
+    }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Web API</h2>
+						<h4>W3C/HTML5标准API和云OS特有的API</h4>
+						<pre><code data-trim contenteditable style="font-size: 32px; margin-top: 40px;">
+							screen.lockOrientation("landscape");
+						</code></pre>
+						<img width="48" height="48" src="img/play.png" border="0">
+					</section>
+					<section>
+						<h2>连接手机和开发平台</h2>
+						<img src="img/connect.png">
+					</section>
+					<section>
+						<ul>
+							<li>方式一：自动连接 By 云OS辅助插件<br>
+								<img src="img/plugin.png" border="0">
+							</li>
+							<li>方式二：手动连接</li>
+						</ul>
+					</section>
+					<section>
+						<h2>一键安装</h2>
+						<p>Packaged WebApp to device</p>
+						<img src="img/install_packaged.png">
+					</section>
+					<section>
+						<h2>一键安装</h2>
+						<p>Hosted WebApp to device</p>
+						<img src="img/install.png">
+					</section>
+					<section>
+						<h2>应用调试</h2>
+						<img src="img/debug.png">
+					</section>
+					<section>
+						<h2>应用云部署</h2>
+						<img src="img/ace.png">
+					</section>
+					<section>
+						<h2>应用市场</h2>
+						<img src="img/appstore.png">
+					</section>
+					<section>
+						<h2>相关资源下载</h2>
+						<ul>
+							<li><a href="../../apidoc/out/#!/guide/webrt_sample" target="_blank">实例代码</a></li>
+							<li><a href="../yunos-webrt-developer.crx">云os辅助插件</a></li>
+							<li><a href="../settings.apk">云os SDK</a></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>Q&A</h2>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/leap/leap.js', async: true }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
